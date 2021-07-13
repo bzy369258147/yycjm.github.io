@@ -1,13 +1,16 @@
 function scaleCanvas() {
     canvas.width = $(window).width();
     canvas.height = $(window).height();
-
+	
+	
+	
     if (canvas.height > canvas.width) {
-        settings.scale = (canvas.width / 800) * settings.baseScale;
+        settings.scale = (canvas.width / 100) * settings.baseScale;
     } else {
-        settings.scale = (canvas.height / 800) * settings.baseScale;
+        settings.scale = (canvas.height / 100) * settings.baseScale;
     }
-
+	canvas.height = canvas.width = 200;
+	
     trueCanvas = {
         width: canvas.width,
         height: canvas.height
@@ -303,6 +306,7 @@ function isInfringing(hex) {
 }
 
 function checkGameOver() {
+	//return false;
     for (var i = 0; i < MainHex.sides; i++) {
         if (isInfringing(MainHex)) {
             if (highscores.indexOf(score) == -1) {
